@@ -1,92 +1,47 @@
-/*import React from 'react';
+// import { useState } from 'react';
+// //import { auth } from '../firebaseConfig';
+// import { signInWithEmailAndPassword } from 'firebase/auth';
+// import { auth, googleProvider } from '../firebaseConfig'; // Path to your firebase config file
+// import { signInWithPopup } from 'firebase/auth';
 
-const Login = () => {
-  const login = () => {
-    window.location.href = '/signin-oidc';
-  };
+// const Login = () => {
+//   const [email, setEmail] = useState('');
+//   const [password, setPassword] = useState('');
+//   const [error, setError] = useState('');
 
-  return (
-    <div>
-      <button onClick={login}>Login</button>
-    </div>
-  );
-};
+//   const handleLogin = async (e) => {
+//     e.preventDefault();
+//     try {
+//       await signInWithEmailAndPassword(auth, email, password);
+//       alert("User logged in successfully!");
+//     } catch (error) {
+//       setError(error.message);
+//     }
+//   };
 
+  
+//     const handleGoogleLogin = async () => {
+//       try {
+//         const result = await signInWithPopup(auth, googleProvider);
+//         const user = result.user;
+//         console.log("User Details:", user);  // Display user info in console
+//         alert(`Logged in as ${user.displayName}`);
+//       } catch (error) {
+//         console.error("Error during sign-in:", error.message);
+//       }
+//     };
 
-export default Login;*/
+//   return (
+//     <form onSubmit={handleLogin}>
+//       <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+//       <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+//       <button type="submit">Login</button>
+//       <button onClick={handleGoogleLogin}>
+//         Sign in with Google
+//       </button>
+//       {error && <p>{error}</p>}
+//     </form>
+//   );
+// };
 
-/* --------------------------- Modified Code -----------------------*/
-
-// src/components/Login.js
-import React, { useState } from 'react';
-import './Login.css';
-
-const Login = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        try {
-            const response = await fetch('https://localhost:5001/api/account/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email, password }),
-            });
-
-            if (response.ok) {
-                const data = await response.json();
-                localStorage.setItem('token', data.token);
-                // Redirect or update the UI after login
-                // Example: window.location.href = '/';
-            } else {
-                setError('Login failed. Please check your credentials.');
-            }
-        } catch (error) {
-            setError('An error occurred while trying to login.');
-        }
-    };
-
-    return (
-        <div className="login-wrapper">
-            <div className="login-container">
-                <div className="login-card">
-                    <h2 className="login-title">Welcome Back!</h2>
-                    <form onSubmit={handleSubmit} className="login-form">
-                        <div className="input-group">
-                            <label htmlFor="email">Email:</label>
-                            <input
-                                type="email"
-                                id="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                placeholder="Enter your email"
-                            />
-                        </div>
-                        <div className="input-group">
-                            <label htmlFor="password">Password:</label>
-                            <input
-                                type="password"
-                                id="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                placeholder="Enter your password"
-                            />
-                        </div>
-                        {error && <p className="error-message">{error}</p>}
-                        <button type="submit" className="login-button">Login</button>
-                    </form>
-                    <div className="login-footer">
-                        <p>New here? <a href="#">Create an account</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-}
-
-export default Login;
+// export default Login;

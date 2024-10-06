@@ -3,8 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import { fetchItems } from './apiService';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from './login/Login';
-import Home from './Home';
+//import Login from './login/Login';
+import Home from './home/Home';
 
 function App() {
   // State variables for items, loading, and error
@@ -32,7 +32,6 @@ function App() {
     <Router>
       <div className="App">
       <Routes>
-                    <Route path="/login" element={<Login />} />
                     <Route path="/" element={<Home />} />
                 </Routes>
       </div>
