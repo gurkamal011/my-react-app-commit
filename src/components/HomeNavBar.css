@@ -1,0 +1,16 @@
+.navbar-logo {
+    height: 50px; /* Adjust the height to fit your navbar */
+    margin-right: 20px; /* Adjust space between logo and other nav items */
+  }
+  @media (max-width: 768px) {
+    .navbar-logo {
+      height: 40px; /* Smaller logo for smaller screens */
+    }
+  }
+
+  .brand-text {
+    color: #4c4c4d;
+    font-family: 'Cormorant Unicase';
+    font-size: 24px;
+    font-weight: bold;
+  }

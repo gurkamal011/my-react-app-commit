@@ -1,0 +1,17 @@
+
+.carousel-image {
+    max-height: 400px; /* Set the maximum height of the images */
+    object-fit: cover;  /* Ensures the image covers the container */
+ }
+
+ @media (max-width: 768px) {
+    .carousel-image {
+      max-height: 300px; /* Smaller height for smaller screens */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .carousel-image {
+      max-height: 200px; /* Even smaller height for mobile devices */
+    }
+  }
