@@ -4,8 +4,14 @@ import './App.css';
 import { fetchItems } from './apiService';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 //import Login from './login/Login';
+import HomeNavBar from './components/HomeNavBar';
 import Home from './home/Home';
 import Login from './login/Login';
+import Signup from './login/Signup';
+import Pricing from './components/pages/pricing/Pricing';
+import Features from './components/pages/features/Features';
+import About from './components/pages/about/About';
+import Contact from './components/pages/contact/Contact';
 
 function App() {
   // State variables for items, loading, and error
@@ -32,9 +38,15 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <HomeNavBar />
       <Routes>
-      <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Home />} />
+        <Route path="/features" element={<Features />} />
+        <Route path="/pricing" element={<Pricing />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/home" element={<Home />} />
       </Routes>
       </div>
     </Router>

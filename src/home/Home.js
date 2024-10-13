@@ -13,7 +13,6 @@ const Home = () => {
 
     return (
         <div>
-          <HomeNavBar />
           <HomeCarousel />
             <h1>Welcome to the Treasury Health Homepage</h1>
             <p>This is a simple Home page for managing your expenses.</p>
