@@ -12,6 +12,8 @@ import Pricing from './components/pages/pricing/Pricing';
 import Features from './components/pages/features/Features';
 import About from './components/pages/about/About';
 import Contact from './components/pages/contact/Contact';
+import MyAccount from './components/pages/MyAccount/MyAccount';
+import UserDashboard from './components/pages/UserDashboard/UserDashboard';
 
 function App() {
   // State variables for items, loading, and error
@@ -47,6 +49,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/userDashboard" element={<UserDashboard />} />
+        <Route path="/myAccount" element={<MyAccount />} />
       </Routes>
       </div>
     </Router>

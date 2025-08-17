@@ -6,6 +6,8 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth, googleProvider } from '../FirebaseConfig';
 import { signInWithPopup } from 'firebase/auth';
 import { onAuthStateChanged } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
+
 
 import './Login.css'
 const schema = yup.object().shape({
@@ -16,6 +18,8 @@ const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema),
       });
+      
+const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -30,6 +34,7 @@ const Login = () => {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         setUser(userCredential.user);
+        navigate('/userDashboard');
     } catch (error) {
         setLoginError('Login failed. Please check your email and password.');
         console.error('Error logging in with email/password:', error);
@@ -41,6 +46,7 @@ const Login = () => {
       try {
         const result = await signInWithPopup(auth, googleProvider);
       setUser(result.user); // Set the logged-in user
+      navigate('/userDashboard');
       console.log('Google login success:', result.user);
       } catch (error) {
         setLoginError('Google login failed.');

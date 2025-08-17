@@ -35,6 +35,9 @@ const HomeNavBar =() => {
     }
   };
 
+  // Construct the avatar URL
+  const avatarUrl = user ? `https://ui-avatars.com/api/?name=${encodeURIComponent(user.displayName || user.email)}&rounded=true&background=0D8ABC&color=fff` : '';
+
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container>
@@ -54,9 +57,12 @@ const HomeNavBar =() => {
           {user ? (
             // Show Dashboard and My Account if user is logged in
             <>
-              <Nav.Link as={Link} to="/home">Dashboard</Nav.Link>
-              <Nav.Link as={Link} to="/home">My Account</Nav.Link>
+              <Nav.Link as={Link} to="/userDashboard">Dashboard</Nav.Link>
+              <Nav.Link as={Link} to="/myAccount">My Account</Nav.Link>
               <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+              <div className="user-avatar">
+                <img src={avatarUrl} alt="User Avatar" style={{ width: '40px', height: '40px', borderRadius: '50%' }} />
+              </div>
             </>
           ) : (
             // Show Login and Signup if user is not logged in
